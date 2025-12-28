@@ -282,9 +282,17 @@ public class StaticMethodInterceptor
 
     private string GetMethodKey(MethodInfo method)
     {
-        if (method == null) return "";
+        if (method == null) return string.Empty;
 
         var parameters = string.Join(",", method.GetParameters().Select(p => p.ParameterType.FullName));
-        return $"{method.DeclaringType?.FullName}.{method.Name}({parameters})";
+
+        var genericArgs = string.Empty;
+        if (method.IsGenericMethod)
+        {
+            var typeArgs = method.GetGenericArguments();
+            genericArgs = $"<{string.Join(",", typeArgs.Select(t => t.FullName ?? t.Name))}>";
+        }
+
+        return $"{method.DeclaringType?.FullName}.{method.Name}{genericArgs}({parameters})";
     }
 }

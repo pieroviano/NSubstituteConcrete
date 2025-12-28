@@ -33,7 +33,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Lib.Harmony" Version="2.3.6" />
+		<PackageReference Include="Lib.Harmony" Version="2.4.2" />
 		<PackageReference Include="NSubstitute" Version="5.3.0" />
 	</ItemGroup>
 
@@ -58,6 +58,15 @@
 
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net8.0'">
 		<DefineConstants>$(DefineConstants);NET8_0_OR_GREATER</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net9.0'">
+		<DefineConstants>$(DefineConstants);NET9_0_OR_GREATER</DefineConstants>
+	</PropertyGroup>
+
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net10.0'">
+		<DefineConstants>$(DefineConstants);NET10_0_OR_GREATER</DefineConstants>
 	</PropertyGroup>
 
 </Project>
