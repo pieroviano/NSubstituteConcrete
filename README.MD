@@ -203,6 +203,10 @@ If you find NSubstituteConcrete useful and want to support its development:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Authors
+
+JayArrowz
+
 ## Acknowledgments
 
 - [NSubstitute](https://nsubstitute.github.io/) - Inspiration and base API design
