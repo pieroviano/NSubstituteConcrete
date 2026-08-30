@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-    <Import Project="$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props" Condition="Exists('$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props')" />
+    <Import Project="..\Directory.Nuget.props" Condition="Exists('..\Directory.Nuget.props')" />
     <PropertyGroup>
-        <PackageOutputPath>$(SolutionDir)Packages/</PackageOutputPath>
         <Version>$(VersionPrefix).$(VersionSuffix)</Version>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <LangVersion>12</LangVersion>
-        <PackageId>Net4x.NSubstituteConcrete</PackageId>
+        <LangVersion>latest</LangVersion>
+		<Version>$(NSubstituteConcreteVersion).1</Version>
         <Title>NSubstituteConcrete</Title>
         <Description>Extends NSubstitute to support mocking concrete classes and static methods using Harmony runtime patching. Mock non-virtual methods, static methods, and sealed classes with familiar NSubstitute syntax.</Description>
         <Summary>Mock concrete classes and static methods with NSubstitute syntax using Harmony runtime patching</Summary>
@@ -38,7 +37,6 @@
     <ItemGroup>
         <PackageReference Include="Lib.Harmony" Version="2.4.2" />
         <PackageReference Include="NSubstitute" Version="$(NSubstituteVersion).$(VersionBuildSuffix)" />
-        <PackageReference Include="Net4x.NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
         <PackageReference Include="MinVer" Version="6.0.0" PrivateAssets="All" />
     </ItemGroup>
@@ -62,5 +60,4 @@
     <PropertyGroup Condition="'$(TargetFramework)' == 'net10.0'">
         <DefineConstants>$(DefineConstants);NET10_0_OR_GREATER</DefineConstants>
     </PropertyGroup>
-    <Import Project="$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets" Condition="Exists('$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets')" />
 </Project>
